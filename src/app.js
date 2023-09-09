@@ -1,4 +1,4 @@
-import express from 'express'
+iimport express from 'express'
 import { pool } from './db.js'
 import {PORT} from './config.js'
 
@@ -20,4 +20,4 @@ app.get('/create', async (req, res) => {
 })
 
 app.listen(PORT)
-console.log('Server on port', PORT)
+console.log('Servidor en puerto', PORT)
