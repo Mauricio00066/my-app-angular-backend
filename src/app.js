@@ -35,7 +35,8 @@ app.get('/forecast/:date', async (req, res) => {
   days.push(date)
   date.setDate(date.getDate() + 1)
   days.push(date) */
-  res.json(req.params.date)
+  console.log("Hola")
+  res.json(date)
 })
 
 
