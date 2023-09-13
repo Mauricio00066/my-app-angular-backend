@@ -16,6 +16,11 @@ app.get('/history', async (req, res) => {
   res.json(rows)
 })
 
+app.get('/deactivate_history', async (req, res) => {
+  const [rows] = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0;')
+  res.json(rows)
+})
+
 app.get('/ping', async (req, res) => {
   const [x] = await pool.query(`SELECT "hello world" as RESULT`);
   res.json(x)
