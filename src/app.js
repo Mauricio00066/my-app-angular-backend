@@ -17,7 +17,7 @@ app.get('/history', async (req, res) => {
 })
 
 app.get('/history_all', async (req, res) => {
-  const [rows] = await pool.query('SELECT * FROM `historial`)
+  const [rows] = await pool.query('SELECT * FROM `historial`')
   res.json(rows)
 })
 
