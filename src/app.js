@@ -30,8 +30,9 @@ app.patch('/history', async (req, res) => {
 app.get('/forecast/:date', async (req, res) => {
   const days = []
   let date = new Date(req.params.date)
-  /* days.push(date)
   date.setDate(date.getDate() + 1)
+  /* days.push(date)
+  
   days.push(date)
   date.setDate(date.getDate() + 1)
   days.push(date) */
