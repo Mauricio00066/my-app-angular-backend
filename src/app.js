@@ -16,6 +16,11 @@ app.get('/history', async (req, res) => {
   res.json(rows)
 })
 
+app.get('/history_all', async (req, res) => {
+  const rows = await pool.query('SELECT * FROM `historial`)
+  res.json(rows)
+})
+
 app.post('/history/:city/:country/:date', async (req, res) => {
   //const result = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0')
   //res.json(result)
