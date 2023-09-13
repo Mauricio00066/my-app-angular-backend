@@ -22,9 +22,9 @@ app.get('/history_all', async (req, res) => {
 })
 
 app.post('/history/:city/:country/:date', async (req, res) => {
-  //const result = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0')
-  //res.json(result)
-  res.send(JSON.stringify(req.params))
+  const result = await pool.query(`INSERT INTO historial (id, city, country, date, state, creation_date) VALUES (NULL, '${req.params.city}', '${req.params.country}', '${req.params.date}', '1', current_timestamp())`)
+  res.json(result)
+  //res.send(JSON.stringify(req.params))
 })
 
 app.patch('/history', async (req, res) => {
