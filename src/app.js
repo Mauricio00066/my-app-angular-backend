@@ -17,8 +17,8 @@ app.get('/history', async (req, res) => {
 })
 
 app.get('/deactivate_history', async (req, res) => {
-  const [rows] = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0;')
-  res.json(rows)
+  const result = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0')
+  res.json(result)
 })
 
 app.get('/ping', async (req, res) => {
