@@ -16,7 +16,13 @@ app.get('/history', async (req, res) => {
   res.json(rows)
 })
 
-app.get('/deactivate_history', async (req, res) => {
+app.post('/history/:city/:country/:date', async (req, res) => {
+  //const result = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0')
+  //res.json(result)
+  res.send(JSON.stringify(req.params))
+})
+
+app.patch('/history', async (req, res) => {
   const result = await pool.query('UPDATE `historial` SET `state`= 0 WHERE `id` > 0')
   res.json(result)
 })
