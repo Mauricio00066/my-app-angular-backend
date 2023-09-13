@@ -29,15 +29,16 @@ app.patch('/history', async (req, res) => {
 
 app.get('/forecast/:date', async (req, res) => {
   const days = []
-  let date = new Date(req.params.date)
-  date.setDate(date.getDate() + 1)
-  /* days.push(date)
+  let date = new Date(req.params.date)  
+  days.push(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`)
   
+  /* date.setDate(date.getDate() + 1)  
   days.push(date)
   date.setDate(date.getDate() + 1)
   days.push(date) */
+  
   console.log("Hola")
-  res.json(date)
+  res.json(days)
 })
 
 
