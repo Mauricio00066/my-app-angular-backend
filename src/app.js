@@ -6,11 +6,6 @@ import cors from 'cors'
 const app = express()
 app.use(cors())
 
-app.get('/', async (req, res) => {
-  const [rows] = await pool.query('SELECT * FROM users')
-  res.json(rows)
-})
-
 app.get('/history', async (req, res) => {
   const [rows] = await pool.query('SELECT * FROM `historial` WHERE `state`= 1')
   res.json(rows)
@@ -32,15 +27,17 @@ app.patch('/history', async (req, res) => {
   res.json(result)
 })
 
-app.get('/ping', async (req, res) => {
-  const [x] = await pool.query(`SELECT "hello world" as RESULT`);
-  res.json(x)
-})
-
-app.get('/create', async (req, res) => {
-  const result = await pool.query('INSERT INTO users(name) VALUES ("John")')
+app.get('/forecast/:date', async (req, res) => {
+  const days = []
+  let date = new Date(req.params.date)
+  days.push(date)
+  date.setDate(date.getDate() + 1)
+  days.push(date)
+  date.setDate(date.getDate() + 1)
+  days.push(date)
   res.json(result)
 })
+
 
 app.listen(PORT)
 console.log('Servidor en puerto', PORT)
