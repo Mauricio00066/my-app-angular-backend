@@ -31,8 +31,9 @@ app.get('/forecast/:date', async (req, res) => {
   const days = []
   let date = new Date(req.params.date)  
   days.push(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`)
-  
-  /* date.setDate(date.getDate() + 1)  
+  date.setDate(date.getDate() + 1)
+  days.push(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`)
+  /*   
   days.push(date)
   date.setDate(date.getDate() + 1)
   days.push(date) */
