@@ -7,12 +7,12 @@ const app = express()
 app.use(cors())
 
 app.get('/history', async (req, res) => {
-  const [rows] = await pool.query('SELECT `id`,`city`,`country`, date_format(date, "%Y-%m-%e") as date FROM `historial` WHERE `state`= 1')
+  const [rows] = await pool.query('SELECT `id`,`city`,`country`, date_format(date, "%Y-%m-%e") as date FROM `historial` WHERE `state`= 1 ORDER BY id DESC;')
   res.json(rows)
 })
 
 app.get('/history_all', async (req, res) => {
-  const [rows] = await pool.query('SELECT `id`,`city`,`country`, date_format(date, "%Y-%m-%e") as date FROM `historial`')
+  const [rows] = await pool.query('SELECT `id`,`city`,`country`, date_format(date, "%Y-%m-%e") as date FROM `historial` ORDER BY id DESC;')
   res.json(rows)
 })
 
