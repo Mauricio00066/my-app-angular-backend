@@ -12,7 +12,7 @@ app.get('/history', async (req, res) => {
 })
 
 app.get('/history_all', async (req, res) => {
-  const [rows] = await pool.query('SELECT `id`,`city`,`country`, date_format(date, "%Y-%m-%e") as date FROM `historial` ORDER BY id DESC;')
+  const [rows] = await pool.query('SELECT `id`,`city`,`country`, date_format(date, "%Y-%m-%e") as date, creation_date FROM `historial` ORDER BY id DESC;')
   res.json(rows)
 })
 
